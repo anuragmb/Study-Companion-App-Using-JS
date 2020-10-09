@@ -1,0 +1,1045 @@
+/Called when application is started.
+function OnStart()
+{
+	//Create a layout with objects vertically centered.
+	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+	
+btn2 = app.CreateButton("🔙",0,1,"Font");
+btn2.SetPosition(0.82,0,0.18,0.10);
+layHeader.AddChild(btn2);
+btn2.SetOnTouch( btn2_OnTouch );
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0,0);
+layHeader.AddChild(btn1);
+
+
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+layHeader.AddChild(btn1);
+btn1.SetOnTouch(btn_OnTouch1);
+
+		// create header text box
+txt1 = app.CreateText("STUDYCOMPANION       ",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlackBack.jpg");
+lay.AddChild(txt1);
+layHeader.AddChild(btn2);
+ lay.AddChild( layHeader );
+	
+	
+	
+
+
+
+
+	// To add image
+	    img = app.CreateImage( "Img/Screenshot_2019-04-28-17-46-16-40.png");
+    lay.AddChild( img );
+	
+
+	
+
+
+	
+	
+	//button
+	btn=app.CreateButton("Start",0.3,0.1);
+	btn.SetMargins( 0,0.05,0,0 );
+	lay.AddChild( btn );
+	// button function
+	
+	btn.SetOnTouch( btn_OnTouch );
+	
+	//Add layout to app.	
+	app.AddLayout( lay );
+	lay.SetBackColor( "white" );
+	
+	 
+
+
+	}
+	
+	function btn2_OnTouch()
+	{
+	    app.ShowPopup("Can't GO BACK....If u want to exit press EXIT" );
+   }
+ 
+function btn_OnTouch()
+{
+ 	lay= app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay);
+			lay.Animate( "SlideFromRight");
+	lay.SetBackColor( "white" );
+		// create header text box
+txt1 = app.CreateText("SELECT BRANCH",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+	btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch( OnStart );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch ( btn_OnTouch1 );
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+	
+	
+		app.AddLayout( lay);
+	lay.SetBackColor( "purple" );
+
+	
+  //button 2
+ 
+	btn = app.CreateButton( "COMPUTERSCIENCE" );
+  btn.SetOnTouch( dlg_OnTouch);
+  lay.AddChild( btn );
+  
+  
+  //button 3
+ 
+	btn = app.CreateButton( "CIVIL ENGINEERING" );
+  btn.SetOnTouch(  dlg_OnTouch);
+  lay.AddChild( btn );
+  
+    //button 4
+ 
+	btn = app.CreateButton( "        BIO MEDICAL     " );
+  btn.SetOnTouch(  dlg_OnTouch);
+  lay.AddChild( btn );
+
+  //button 5
+ 
+	btn = app.CreateButton( "    BIO TECHNOLOGY ");
+  btn.SetOnTouch(  dlg_OnTouch);
+  lay.AddChild( btn );
+
+  //button 6
+ 
+	btn = app.CreateButton( "ELECTRICAL  & E E    " );
+  btn.SetOnTouch(  dlg_OnTouch );
+  lay.AddChild( btn );
+  
+    //button 7
+ 
+	btn = app.CreateButton( "     MECHANICAL        " );
+  btn.SetOnTouch(  dlg_OnTouch);
+  lay.AddChild( btn );
+ 
+ }
+ // select branch etc.
+ function dlg_OnTouch()
+ {
+ 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+	
+
+
+			// create header text box
+txt1 = app.CreateText("SELECT SEMESTER",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+	btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch( btn_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+	
+	
+		app.AddLayout( lay );
+			lay.Animate( "SlideFromRight");
+		lay.SetBackColor( "purple" );
+
+	
+  //button 2
+ 
+	btn = app.CreateButton( "SEMESTER 1" );
+  btn.SetOnTouch( lvw_OnTouch1  );
+  lay.AddChild( btn );
+  
+  
+  //button 3
+ 
+	btn = app.CreateButton( "SEMESTER 2" );
+  btn.SetOnTouch( lvw_OnTouch2  );
+  lay.AddChild( btn );
+  
+    //button 4
+ 
+	btn = app.CreateButton( "SEMESTER 3" );
+  btn.SetOnTouch( lvw_OnTouch3 );
+  lay.AddChild( btn );
+
+  //button 5
+ 
+	btn = app.CreateButton( "SEMESTER 4");
+  btn.SetOnTouch( lvw_OnTouch4);
+  lay.AddChild( btn );
+
+  //button 6
+ 
+	btn = app.CreateButton( "SEMESTER 5" );
+  btn.SetOnTouch( lvw_OnTouch5 );
+  lay.AddChild( btn );
+  
+    //button 7
+ 
+	btn = app.CreateButton( "SEMESTER 6" );
+  btn.SetOnTouch( lvw_OnTouch6 );
+  lay.AddChild( btn );
+
+  //button 8
+ 
+	btn = app.CreateButton( "SEMESTER 7");
+  btn.SetOnTouch( lvw_OnTouch7 );
+  lay.AddChild( btn );
+
+  //button 9
+ 
+	btn = app.CreateButton( "SEMESTER 8" );
+  btn.SetOnTouch( lvw_OnTouch8);
+  lay.AddChild( btn );
+
+
+
+	
+	
+    
+  
+ }
+ 
+  function lvw_OnTouch1()
+ {
+ 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+	btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch( dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+
+	lay.AddChild( layHeader );
+	
+	
+		app.AddLayout( lay );
+
+btn=app.CreateButton("      CALCULUS    ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("     CHEMISTRY   ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("            ICPS          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("   MECHANICS     ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("BASICS OF CIVIL");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("SUSTAINABLE    ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+    function lvw_OnTouch2()
+ {
+ 	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+	
+	btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn=app.CreateButton("         C PROGRAMMING          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   PHYSICS                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  DIFFERENTIAL EQUATION   ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                  GRAPHICS               ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    BASICS OF ELECTRONICS"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      DESIGN ENGINEERING   "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+  function lvw_OnTouch3()
+ {
+	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+	lay.SetBackColor( "white" );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+
+btn=app.CreateButton("         DATA STRUCTURE        ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   LINEAR ALGEBRA                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  DISCRETE CS  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("              INTRO .   ELECTRONICS          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    SWITCHING THEORY"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      LIFE SKILLS "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+    function lvw_OnTouch4()
+ {
+lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+
+btn=app.CreateButton("         OPERATING SYSTEM      ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   PDD                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  COA");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("              PDNM      ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    BUSINESS ECONOMICS"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      OODPS "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+    function lvw_OnTouch5()
+ {
+lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+
+btn=app.CreateButton("         DATA STRUCTURE        ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   LINEAR ALGEBRA                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  DISCRETE CS  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("              INTRO .   ELECTRONICS          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    SWITCHING THEORY"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      LIFE SKILLS "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+    function lvw_OnTouch6()
+ {
+lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch  );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+
+btn=app.CreateButton("         DATA STRUCTURE        ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   LINEAR ALGEBRA                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  DISCRETE CS  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("              INTRO .   ELECTRONICS          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    SWITCHING THEORY"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      LIFE SKILLS "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+    function lvw_OnTouch7()
+ {
+lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+btn=app.CreateButton("         DATA STRUCTURE        ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   LINEAR ALGEBRA                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  DISCRETE CS  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("              INTRO .   ELECTRONICS          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    SWITCHING THEORY"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      LIFE SKILLS "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  
+    function lvw_OnTouch8()
+ {
+lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		lay.SetBackColor( "white" );
+	
+		// create header text box
+txt1 = app.CreateText("SELECT SUBJECT",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch(  dlg_OnTouch );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+
+btn=app.CreateButton("         DATA STRUCTURE        ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("                   LINEAR ALGEBRA                  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("  DISCRETE CS  ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("              INTRO .   ELECTRONICS          ");
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("    SWITCHING THEORY"  );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+
+btn=app.CreateButton("      LIFE SKILLS "       );
+btn.SetOnTouch( btn_calculus);
+lay.AddChild( btn );
+  }
+  function file_OnTouch()
+  {
+        app.OpenFile( "/sdcard/Download/aa.pdf", "text/plain", "Choose Editor" );
+    }
+    
+    function btn_pdd()
+  {
+        app.OpenFile( "/sdcard/Download/aa.pdf", "text/plain", "Choose Editor" );
+    }
+    
+     function btn_calculus()
+  {
+          	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		
+		txt1 = app.CreateText("SELECT MODULE",1,0.1,"Center");
+txt1.SetPadding(0.1,0.01,0,0);
+txt1.SetTextSize(28);
+txt1.SetBackground("/Sys/Img/BlueBack.jpg");
+lay.AddChild(txt1);
+		
+		btn1 = app.CreateButton("≡",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch( lvw_OnTouch5 );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("≡",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+		lay.SetBackColor( "white" );
+	
+	btn=app.CreateButton("MODULE 1 ");
+btn.SetOnTouch( btn_pdd1);
+lay.AddChild( btn );
+
+btn=app.CreateButton("MODULE 2");
+btn.SetOnTouch( btn_list);
+lay.AddChild( btn );
+
+btn=app.CreateButton("MODULE 3");
+btn.SetOnTouch( btn_list);
+lay.AddChild( btn );
+
+btn=app.CreateButton("MODULE 4 ");
+btn.SetOnTouch( btn_list);
+lay.AddChild( btn );
+	
+	btn=app.CreateButton("MODULE 5 ");
+btn.SetOnTouch( btn_list );
+lay.AddChild( btn );
+	
+	btn=app.CreateButton("MODULE 6 ");
+btn.SetOnTouch( btn_list );
+lay.AddChild( btn );
+}
+
+  function btn_pdd1()
+  {
+          	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+	layHeader=app.CreateLayout ("Absolute","Vertical");
+		app.AddLayout( lay );
+		
+		btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0.82,0,0,0);
+layHeader.AddChild(btn1);
+
+btn2 = app.CreateButton("🔙",-1,-1,"FontAwesome");
+btn2.SetPosition(0.82,0,0.18,0.10);
+btn2.SetOnTouch( lvw_OnTouch5 );
+layHeader.AddChild(btn2);
+
+btn1 = app.CreateButton("[fa-bars]",-1,-1,"FontAwesome");
+btn1.SetPosition(0,0,0.18,0.10);  
+btn1.SetOnTouch(btn_OnTouch1);
+layHeader.AddChild(btn1);
+	lay.AddChild( layHeader );
+	lay.SetBackColor("white");
+	
+	btn=app.CreateButton("            PDF Notes           ");
+btn.SetOnTouch( btn_pddpdf);
+lay.AddChild( btn );
+
+btn=app.CreateButton("               PPTs                 ");
+btn.SetOnTouch( btn_pddpdf);
+lay.AddChild( btn );
+
+btn=app.CreateButton( "       VIDEO LECTURE    ");
+btn.SetOnTouch( btn_pddvideo);
+lay.AddChild( btn );
+
+btn=app.CreateButton("   PRE.QSTNS & ANSWERS  ");
+btn.SetOnTouch( btn_pddqstn);
+lay.AddChild( btn );
+	
+	btn=app.CreateButton("   DISCUSS WITH FRIENDS  ");
+btn.SetOnTouch( btn_pdddiscuss );
+lay.AddChild( btn );
+
+	btn=app.CreateButton("   Take a Test  ");
+btn.SetOnTouch( btn_pddtest );
+lay.AddChild( btn );
+	
+	btn=app.CreateButton("   MORE.... ");
+btn.SetOnTouch( my_OnTouch );
+lay.AddChild( btn );
+}
+function my_OnTouch()
+{
+  app.OpenUrl( "https://www.ktustudents.in/p/ktu-btech-s4-notes.html?m=1");
+
+}
+    
+function btn_pddpdf()
+{
+  app.OpenUrl( "https://drive.google.com/file/d/1Q-uLtBWFojDYvVIp_mGasUEaMAzm7rwl/view?usp=drivesdk" );
+}
+
+function btn_pddppt()
+{
+      app.OpenUrl( "https://docs.google.com/document/d/1Lm3kXzuV0yqVyoNnYtpAQHethIaeOJ0-Mf5brkcCxsQ/edit?usp=drivesdk" );
+}
+
+function btn_pddvideo()
+{
+      app.OpenUrl( "https://docs.google.com/document/d/1Lm3kXzuV0yqVyoNnYtpAQHethIaeOJ0-Mf5brkcCxsQ/edit?usp=drivesdk" );
+}
+
+function btn_pddqstn()
+{
+    app.ShowPopup( "No more datas Available....App is under Maintanenc");
+}
+
+
+function btn_pdddiscuss()
+{
+   //Create a layout with objects vertically centered. 
+	lay = app.CreateLayout( "linear", "VCenter,FillXY" );  
+	
+	//Create an edit box. 
+	edt = app.CreateTextEdit( "", 0.96, 0.8 ); 
+	edt.SetBackColor( "#333343" );
+
+	
+	//Create a horizontal layout for buttons. 
+	layBut = app.CreateLayout("Linear", "Horizontal"); 
+	lay.AddChild( layBut ); 
+
+	//Create an Load button. 
+	btnLoad = app.CreateButton( "Load", 0.23, 0.1 ); 
+	btnLoad.SetOnTouch( btnLoad_OnTouch ); 
+
+	layBut.AddChild( btnLoad ); 
+
+	//Create an save button. 
+	btnSave = app.CreateButton( "Save", 0.23, 0.1 ); 
+	btnSave.SetOnTouch( btnSave_OnTouch ); 
+	layBut.AddChild( btnSave ); 
+	lay.AddChild( edt ); 
+	
+		//Create an Load button. 
+	bt= app.CreateButton( "Back to Home", 0.23, 0.1 ); 
+	bt.SetOnTouch( OnStart); 
+	layBut.AddChild( bt); 
+	//Add layout to app.	 
+	app.AddLayout( lay ); 
+} 
+
+//Called when user touches Load button. 
+function btnLoad_OnTouch() 
+{ 
+   var txt = app.ReadFile( "Misc/test.txt" );
+  edt.SetText( txt );
+} 
+
+//Called when user touches save button. 
+function btnSave_OnTouch() 
+{ 
+    var txt = edt.GetText();
+	app.WriteFile( "Misc/test.txt", txt );
+	app.ShowPopup("Sending notification");
+    notify = app.CreateNotification();
+    notify.SetMessage("Ticker","Study Companion","Something is discussed");
+    notify.Notify("testID");
+   }
+
+
+function btn_pddtest()
+{
+    	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+;
+     lay.SetBackColor( "Black" );
+     txt = app.CreateText( "1.Three Schemas  In 3-schema architecture", 0.8, 0.2 );
+    txt.SetTextSize( 12);
+    txt.SetTextColor( "white" );
+    txt.SetBackColor( "Black" );
+        lay.AddChild( txt );
+    
+    chk = app.CreateCheckBox( "External Schema        " );
+    chk.SetOnTouch( wrong);
+    lay.AddChild( chk );
+    chk2 = app.CreateCheckBox( "Conceptual  Schema" );
+    chk2.SetOnTouch( wrong);
+    lay.AddChild( chk2 );
+    
+    chk3= app.CreateCheckBox( "Internal Schema.         " );
+    chk3.SetOnTouch( wrong);
+    lay.AddChild( chk3);
+    
+    chk4= app.CreateCheckBox( "All the Above                " );
+    chk4.SetOnTouch( right);
+    lay.AddChild( chk4 );
+
+
+
+      		app.AddLayout( lay );
+      		
+
+
+}
+
+function btn_pddtest1()
+{
+    	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+;
+     lay.SetBackColor( "Black" );
+     txt = app.CreateText( "2.   SQL is the acronym of ---------", 0.8, 0.2 );
+    txt.SetTextSize( 12);
+    txt.SetTextColor( "white" );
+    txt.SetBackColor( "Black" );
+        lay.AddChild( txt );
+    
+    chk = app.CreateCheckBox( "structure Query language     " );
+    chk.SetOnTouch( wrong);
+    lay.AddChild( chk );
+    chk2 = app.CreateCheckBox( "Sequential   query language" );
+    chk2.SetOnTouch( wrong);
+    lay.AddChild( chk2 );
+    
+    chk3= app.CreateCheckBox( "structural query language    " );
+    chk3.SetOnTouch( wrong);
+    lay.AddChild( chk3);
+    
+    chk4= app.CreateCheckBox( "structured query language     " );
+    chk4.SetOnTouch( right );
+    lay.AddChild( chk4 );
+
+ 
+
+
+      		app.AddLayout( lay );
+      		
+
+
+}
+
+function right()
+{
+   app.TextToSpeech( "Cogratulations Correct Answer", 0.9,0.9);
+ 	btn=app.CreateButton("   Next ",-1,-1,"FillXAlum");
+btn.SetOnTouch( btn_pddtest1);
+lay.AddChild( btn );
+}
+
+function wrong()
+{
+   app.TextToSpeech( "Better luck next time", 0.9,0.9);
+  btn=app.CreateButton(" Try Again ",-1,-1,"FillXAlum");
+btn.SetOnTouch( btn_pddtest1);
+lay.AddChild( btn );
+}
+
+
+
+function btn_list()
+{
+  app.ShowPopup( "No More Datas Available...App is Under Maintanence" );
+    
+ }
+ 
+ 	// Exit function
+	function btn_OnTouch1()
+{
+     lay = app.CreateLayout( "Linear", "FillXY,VCenter" );
+
+    app.AddLayout( lay );
+
+    layDrawer = app.CreateLayout( "Linear", "VCenter" );
+    layDrawer.SetBackground( "/Sys/Img/BlueBack.png" );
+    
+     b1 = app.CreateButton( "Settiings", -1, -1, "FillX,Alum" );
+     b1.SetOnTouch( lst_OnTouch );
+     b2 = app.CreateButton( "About", -1, -1, "FillX,Alum" );
+     b2.SetOnTouch( abt_OnTouch );
+     b3 = app.CreateButton( "Help", -1, -1, "FillX,Alum" );
+     b3.SetOnTouch( b_OnTouch );
+      b6 = app.CreateButton( "Rate  ⭐", -1, -1, "FillX,Alum" );
+     b6.SetOnTouch( b3_OnTouch );
+      b5= app.CreateButton( "Back To Home", -1, -1, "FillX,Alum" );
+     b5.SetOnTouch( OnStart);
+     b4 = app.CreateButton( "Exit ", -1, -1, "FillX,Alum" );
+     b4.SetOnTouch( lst_Exit);
+  
+    lay.AddChild( b1);
+    lay.AddChild( b2);
+    lay.AddChild( b3);
+    lay.AddChild( b6 );
+    lay.AddChild( b5);
+      lay.AddChild( b4);
+     
+     
+    lay.SetBackColor( "Black");
+    app.AddLayout( lay );
+}
+
+function lst_Exit()
+{
+ app.Exit(  );
+ }
+
+function lst_OnTouch( )
+{
+   var   txt = "Unable to Change the SETTINGS"
+   app.ShowPopup( txt );
+ }
+
+
+function abt_OnTouch( )
+{
+
+    	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
+   	layHeader=app.CreateLayout ("Absolute","Vertical");
+   	
+       txt = app.CreateText( "Created  By: " );
+       txt.SetTextSize( 16);
+       txt1= app.CreateText( " ASWATHY  P SHYJU" );
+       txt1.SetTextSize( 15 );
+       txt2= app.CreateText( " ANN MARIA" );
+       txt2.SetTextSize( 15 );
+       txt3= app.CreateText( " ABHISHEK" );
+       txt3.SetTextSize( 15 );
+       txt4= app.CreateText( " ANURAG MB" );
+       txt4.SetTextSize( 15 );
+       
+      lay.AddChild( txt );
+      lay.AddChild( txt1 );
+      lay.AddChild( txt2);
+      lay.AddChild( txt3);
+      lay.AddChild( txt4);
+      b5= app.CreateButton( "Back ", -1,-2 ,"FillAlum" );
+      b5.SetOnTouch( btn_OnTouch1);
+      lay.AddChild( b5);
+     lay.SetBackColor( "Gray");
+   	app.AddLayout( lay );
+
+}
+
+function b3_OnTouch()
+{
+  var  txt ="⭐⭐⭐⭐⭐";
+         app.ShowPopup( txt );
+   }
+   function b_OnTouch()
+   {
+     app.OpenUrl( "https://docs.google.com/document/d/1s1aphQhutaA-y8Ki35C8bVUoi0vF9ndx0GUiFVXCOto/edit?usp=drivesdk" );
+         
+  }
+3 Attachments
+	
+	
+	
